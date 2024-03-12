@@ -1,0 +1,53 @@
+.greeting {
+    @include media-breakpoint-down(sm) {
+        font-size: 84px;
+        line-height: 105px;
+    }
+
+    @include media-breakpoint-down(xs) {
+        font-size: 60px;
+        line-height: 80px;
+    }
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 10px;
+
+    font-family: Lastochka, sans-serif;
+    font-size: 100px;
+    line-height: 120px;
+}
+
+.greeting__date {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-family: Aukim, sans-serif;
+    font-size: 60px;
+    @include media-breakpoint-down(sm) {
+        font-size: 50px;
+    }
+    @include media-breakpoint-down(xs) {
+        font-size: 36px;
+    }
+}
+
+.greeting__separator {
+    width: 6px;
+    height: 6px;
+    background-color: var(--brown);
+    margin: 0 20px;
+    border-radius: 50%;
+    @include media-breakpoint-down(sm) {
+        margin: 0 10px;
+    }
+}
+
+.greeting__img {
+    height: 400px;
+}

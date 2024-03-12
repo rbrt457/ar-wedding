@@ -1,0 +1,14 @@
+.dress-code__map {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.dress-code__color {
+    width: 70px;
+    height: 70px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 1px 1px rgba(34, 60, 80, 0.2) inset;
+}

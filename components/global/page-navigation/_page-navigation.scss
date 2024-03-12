@@ -1,0 +1,14 @@
+.page-navigation__prev {
+    top: 40px;
+    transform: translateX(-50%) rotate(180deg);
+}
+
+.page-navigation__next {
+    bottom: 40px;
+    transform: translateX(-50%);
+}
+
+.page-navigation__prev,
+.page-navigation__next {
+    left: 50%;
+}

@@ -1,0 +1,12 @@
+.container {
+    @include make-container();
+    @include make-container-max-widths;
+
+    @include media-breakpoint-down(sm) {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    margin-right: auto;
+    margin-left: auto;
+}

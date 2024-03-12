@@ -1,0 +1,82 @@
+#event-calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.date-event {
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+.date-event__title {
+    margin-bottom: 64px;
+}
+
+.date-event__calendar {
+    transform: scale(1.3);
+
+}
+
+.air-datepicker {
+    font-family: Sofia, sans-serif;
+    background-color: transparent;
+    border: none;
+}
+
+.air-datepicker--navigation {
+    display: none;
+}
+
+.air-datepicker-cell.-day-.-disabled-:not(.-other-month-, .-selected-) {
+    color: var(--brown);
+}
+
+.air-datepicker-cell.-day-.-disabled-.-other-month- {
+    color: transparent;
+}
+
+.air-datepicker-cell.-day-.-focus- {
+    background-color: transparent;
+}
+
+.air-datepicker-cell.-day- {
+    font-size: 18px;
+}
+
+.air-datepicker-cell.-day-.-selected- {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px 4px;
+    font-size: 16px;
+    color: var(--white);
+
+    background-color: transparent;
+    background-image: url("/assets/icons/heart.svg");
+    background-position: center;
+    background-size: contain;
+    animation: test 2s infinite;
+}
+
+.air-datepicker-body--day-name {
+    font-size: 24px;
+    color: var(--olive);
+}
+
+.air-datepicker-body--day-names {
+    display: none;
+}
+
+@keyframes test {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+    100% {
+        transform: scale(1);
+    }
+}

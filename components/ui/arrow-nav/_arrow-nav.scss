@@ -1,0 +1,35 @@
+.arrow-nav {
+    cursor: pointer;
+
+    position: fixed;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 60px;
+    height: 60px;
+
+    font-size: 44px;
+
+    border: 1px solid var(--brown);
+    border-radius: 50%;
+}
+
+.arrow-nav--animation {
+    animation: ani 2s normal infinite;
+}
+
+@keyframes ani {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.2);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}

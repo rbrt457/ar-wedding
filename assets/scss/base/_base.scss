@@ -1,0 +1,124 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    width: 100%;
+    height: auto;
+    margin: 0;
+
+    font-family: Sofia, sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    font-style: italic;
+    line-height: 22px;
+    color: var(--brown);
+}
+
+body {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    min-height: 60px;
+}
+
+body,
+#__nuxt,
+#__layout,
+.layout {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    //min-height: 100vh;
+}
+
+main {
+    flex: 1 1;
+}
+
+a {
+    touch-action: manipulation;
+    cursor: pointer;
+    text-decoration: none;
+    outline: none;
+}
+
+.visually-hidden {
+    position: absolute;
+
+    overflow: hidden;
+
+    width: 1px;
+    height: 1px;
+    padding: 0;
+
+    clip: rect(1px, 1px, 1px, 1px);
+    border: 0;
+}
+
+button {
+    padding: 0;
+
+    font-family: inherit;
+    font-size: inherit;
+
+    background-color: transparent;
+    border-color: transparent;
+    outline: none;
+}
+
+[v-cloak] {
+    display: none;
+}
+
+.collapsing {
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    transition: height 0.35s ease;
+}
+
+.collapse:not(.show) {
+    display: none;
+}
+
+.fade {
+    transition: opacity 0.15s linear;
+}
+
+.fade:not(.show) {
+    opacity: 0;
+}
+
+.pos-relative {
+    position: relative;
+}
+
+.block-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
+.position-relative {
+    position: relative;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
