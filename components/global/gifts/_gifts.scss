@@ -1,8 +1,9 @@
-.gifts__content{
-    display: grid;
-    @include media-breakpoint-up(lg){
-        grid-template-columns: 50% 50%
+.gifts__content {
+    @include media-breakpoint-up(lg) {
+        grid-template-columns: 50% auto;
     }
+
+    display: grid;
     gap: 40px;
     align-items: center;
 }

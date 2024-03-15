@@ -8,17 +8,19 @@
             <span>24</span>
         </div>
 
-        <!--        <img class="greeting__img" src="/IMG_2410.jpg" >-->
-
         <h1 class="text-center">Роберт и Анастасия</h1>
+
+        <ArrowNav v-if="pageOffSet < 100" class="greeting__arrow" :animated="true" @click="scroll" />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
+import ArrowNav from "~/components/ui/arrow-nav/arrow-nav.vue";
 
 export default defineComponent({
     name: "Greeting",
+    components: { ArrowNav },
     data: () => ({
         pageOffSet: 0,
     }),
@@ -30,6 +32,9 @@ export default defineComponent({
     methods: {
         setPageOffSet(pageYOffset) {
             this.pageOffSet = pageYOffset;
+        },
+        scroll() {
+            window.scrollTo(0, window.innerHeight - 20);
         },
     },
 });

@@ -1,21 +1,13 @@
 <template>
     <div>
-        <Greeting ref="firstPage" />
+        <Greeting />
 
-        <MainBlock ref="secondPage" />
+        <MainBlock />
 
-        <DateEvent ref="thirdPage" />
+        <DateEvent />
 
         <DressCode />
 
-        <Gifts/>
+        <Gifts />
     </div>
 </template>
-
-<script lang="ts" setup>
-import { useState } from "nuxt/app";
-
-const firstPage = useState("firstPage", () => null);
-const secondPage = useState("secondPage", () => null);
-const thirdPage = useState("thirdPage", () => null);
-</script>

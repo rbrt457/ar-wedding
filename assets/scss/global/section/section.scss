@@ -4,14 +4,16 @@
 
 .section__title {
     position: relative;
-    font-family: Lastochka, sans-serif;
-    font-size: 60px;
-    line-height: 70px;
+
     display: flex;
     align-items: center;
     justify-content: center;
 
     margin-bottom: 20px;
+
+    font-family: Lastochka, sans-serif;
+    font-size: 60px;
+    line-height: 70px;
 }
 
 .section__main {

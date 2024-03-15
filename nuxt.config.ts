@@ -15,9 +15,7 @@ export default defineNuxtConfig({
                 },
             ],
             link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
-            style: [],
-            noscript: [],
-            title: "Wedding",
+            title: "Приглашение",
         },
     },
     css: ["/assets/fonts/fonts.css", "/assets/scss/base/_colors.scss", "/assets/scss/base/_base.scss", "/assets/scss/global/_global.scss"],
@@ -30,7 +28,11 @@ export default defineNuxtConfig({
             },
         },
     },
-
+    runtimeConfig: {
+        public: {
+            TELEGRAM_CHAT: process.env.TELEGRAM_CHAT,
+        },
+    },
     typescript: {
         typeCheck: false,
     },
@@ -43,6 +45,8 @@ export default defineNuxtConfig({
         "@nuxt/image",
         ["@nuxtjs/eslint-module", { lintOnStart: false, emitError: false, emitWarning: false }],
         ["@nuxtjs/stylelint-module", { lintOnStart: false, emitError: false, emitWarning: false }],
+        // https://www.npmjs.com/package/yandex-metrika-module-nuxt3
+        "yandex-metrika-module-nuxt3",
     ],
     viewport: {
         breakpoints: {
@@ -65,5 +69,15 @@ export default defineNuxtConfig({
         url: process.env.SUPABASE_URL,
         key: process.env.SUPABASE_KEY,
         redirect: false,
+    },
+    yandexMetrika: {
+        id: process.env.YANDEX_METRIKA_ID,
+        defer: false,
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        consoleLog: false,
+        trackHash: true,
+        webvisor: true,
     },
 });

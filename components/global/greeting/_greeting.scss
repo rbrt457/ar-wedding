@@ -24,30 +24,41 @@
 }
 
 .greeting__date {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-family: Aukim, sans-serif;
-    font-size: 60px;
     @include media-breakpoint-down(sm) {
         font-size: 50px;
     }
+
     @include media-breakpoint-down(xs) {
         font-size: 36px;
     }
+
+    display: flex;
+    gap: 20px;
+    align-items: center;
+
+    font-family: Aukim, sans-serif;
+    font-size: 60px;
 }
 
 .greeting__separator {
-    width: 6px;
-    height: 6px;
-    background-color: var(--brown);
-    margin: 0 20px;
-    border-radius: 50%;
     @include media-breakpoint-down(sm) {
         margin: 0 10px;
     }
+
+    width: 6px;
+    height: 6px;
+    margin: 0 20px;
+
+    background-color: var(--brown);
+    border-radius: 50%;
 }
 
 .greeting__img {
     height: 400px;
+}
+
+.greeting__arrow {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
 }
