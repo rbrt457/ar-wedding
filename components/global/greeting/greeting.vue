@@ -1,5 +1,5 @@
 <template>
-    <div class="page greeting">
+    <div class="page greeting" :style="`height:${deviceHeight}px`">
         <div class="greeting__date">
             <span>21</span>
             <span class="greeting__separator"></span>
@@ -23,14 +23,17 @@ export default defineComponent({
     components: { ArrowNav },
     data: () => ({
         pageOffSet: 0,
+        deviceHeight: 0,
     }),
     mounted() {
+        this.deviceHeight = window.innerHeight;
+
         window.addEventListener("scroll", () => {
             this.setPageOffSet(pageYOffset);
         });
     },
     methods: {
-        setPageOffSet(pageYOffset) {
+        setPageOffSet(pageYOffset: number) {
             this.pageOffSet = pageYOffset;
         },
         scroll() {

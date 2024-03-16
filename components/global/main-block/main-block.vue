@@ -16,9 +16,9 @@
                     </div>
 
                     <div v-if="guest.confirmed === null" class="two__controls">
-                        <button class="button button--sm button--min-180 button--brown" @click="confirmInvite(true)">Подтвердить присутствие</button>
+                        <!--                        <button class="button button&#45;&#45;sm button&#45;&#45;min-180 button&#45;&#45;brown" @click="confirmInvite(true)">Подтвердить присутствие</button>-->
 
-                        <button class="button button--sm button--brown-outline" @click="confirmInvite(false)">Сожалею, не смогу присутствовать</button>
+                        <!--                        <button class="button button&#45;&#45;sm button&#45;&#45;brown-outline" @click="confirmInvite(false)">Сожалею, не смогу присутствовать</button>-->
                     </div>
 
                     <div v-else class="two__controls">
@@ -35,19 +35,16 @@
 </template>
 
 <script lang="ts" setup>
-import { useTelegramNotification } from "~/composables/useTelegramNotification";
 import { useGuestsStore } from "~/store/guests/guests";
 
 const guestStore = useGuestsStore();
 const guest = guestStore.getGuest;
 
-const confirmInvite = async (decision: Boolean) => {
-    // await updateGuestTable({ confirmed: decision });
-    // await refreshGuestData();
-
-    const botMessage = `${useListNames(guest.names)} ${decision ? "приняли" : "отклонили"} приглашение`;
-    await useTelegramNotification(botMessage);
-};
+// const confirmInvite = async (decision: Boolean) => {
+// await updateGuestTable({ confirmed: decision });
+// await refreshGuestData();
+// const botMessage = `${useListNames(guest.names)} ${decision ? "приняли" : "отклонили"} приглашение`;
+// };
 </script>
 
 <style scoped lang="scss">

@@ -2,9 +2,7 @@
     <div class="layout-default">
         <div class="layout-background"></div>
 
-        <div class="pos-relative">
-            <slot />
-        </div>
+        <slot />
     </div>
 </template>
 

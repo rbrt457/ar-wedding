@@ -29,9 +29,8 @@ export default defineNuxtConfig({
         },
     },
     runtimeConfig: {
-        public: {
-            TELEGRAM_CHAT: process.env.TELEGRAM_CHAT,
-        },
+        TELEGRAM_CHAT: process.env.TELEGRAM_CHAT,
+        TELEGRAM_TOKEN: process.env.TELEGRAM_TOKEN,
     },
     typescript: {
         typeCheck: false,
@@ -58,7 +57,6 @@ export default defineNuxtConfig({
             xxl: 1440,
             xxxl: 1900,
         },
-
         defaultBreakpoints: {
             desktop: "xl",
             mobile: "md",
@@ -66,8 +64,6 @@ export default defineNuxtConfig({
         },
     },
     supabase: {
-        url: process.env.SUPABASE_URL,
-        key: process.env.SUPABASE_KEY,
         redirect: false,
     },
     yandexMetrika: {
