@@ -14,13 +14,13 @@ export const useGuestsStore = defineStore("guests-store", {
 
             this.guest = guest;
         },
-        async updateGuestTable(updated) {
+        async updateGuestTable(updated, updateGuestInfo) {
             await this.supabase.from("guests").update(updated).eq("id", this.guestId);
+
+            if (updateGuestInfo) await this.fetchGuest();
         },
         async updateGuestVisits() {
-            const visits = { visits: this.guest.visits + 1 || 0 };
-
-            await this.updateGuestTable(visits);
+            await this.updateGuestTable({ visits: this.guest.visits + 1 || 0 });
         },
     },
     getters: {

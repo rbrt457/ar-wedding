@@ -7,7 +7,7 @@
 
             <div class="two">
                 <div class="two__content">
-                    <h2 class="two__guest-name">{{ useListNames(guest.names) }}</h2>
+                    <h2 class="two__guest-name">{{ useListNames(getGuest.names) }}</h2>
 
                     <div class="p1 text-center two__invite">
                         <p>Приглашаем Вас на торжество, посвященное нашему бракосочетанию!</p>
@@ -15,18 +15,18 @@
                         <p>Подтвердите пожалуйста свое присутствие</p>
                     </div>
 
-                    <div v-if="guest.confirmed === null" class="two__controls">
-                        <!--                        <button class="button button&#45;&#45;sm button&#45;&#45;min-180 button&#45;&#45;brown" @click="confirmInvite(true)">Подтвердить присутствие</button>-->
+                    <div v-if="getGuest.confirmed === null" class="two__controls">
+                        <button class="button button--sm button--min-180 button--brown" @click="confirmInvite(true)">Подтвердить присутствие</button>
 
-                        <!--                        <button class="button button&#45;&#45;sm button&#45;&#45;brown-outline" @click="confirmInvite(false)">Сожалею, не смогу присутствовать</button>-->
+                        <button class="button button--sm button--brown-outline" @click="confirmInvite(false)">Сожалею, не смогу присутствовать</button>
                     </div>
 
                     <div v-else class="two__controls">
                         <button class="button button--sm button--brown" disabled>
-                            {{ guest.confirmed ? "Приглашение принято" : "Приглашение отклонено" }}
+                            {{ getGuest.confirmed ? "Приглашение принято" : "Приглашение отклонено" }}
                         </button>
 
-                        <button class="button button--xs button--brown-outline">Изменить решение</button>
+                        <button class="button button--xs button--brown-outline" @click="resetChoice()">Изменить решение</button>
                     </div>
                 </div>
             </div>
@@ -35,16 +35,37 @@
 </template>
 
 <script lang="ts" setup>
+import { useFetch } from "#app";
 import { useGuestsStore } from "~/store/guests/guests";
 
 const guestStore = useGuestsStore();
-const guest = guestStore.getGuest;
+const { getGuest } = storeToRefs(guestStore);
 
-// const confirmInvite = async (decision: Boolean) => {
-// await updateGuestTable({ confirmed: decision });
-// await refreshGuestData();
-// const botMessage = `${useListNames(guest.names)} ${decision ? "приняли" : "отклонили"} приглашение`;
-// };
+const confirmInvite = async (decision: Boolean) => {
+    await guestStore.updateGuestTable({ confirmed: decision }, true);
+
+    const botMessage = `${useListNames(getGuest.value.names)} ${decision ? "приняли" : "отклонили"} приглашение`;
+
+    await useFetch("/api/send-telegram-msg", {
+        method: "POST",
+        body: {
+            message: botMessage,
+        },
+    });
+};
+
+const resetChoice = async () => {
+    await guestStore.updateGuestTable({ confirmed: null }, true);
+
+    const botMessage = `${useListNames(getGuest.value.names)} хочет изменить решение`;
+
+    await useFetch("/api/send-telegram-msg", {
+        method: "POST",
+        body: {
+            message: botMessage,
+        },
+    });
+};
 </script>
 
 <style scoped lang="scss">
